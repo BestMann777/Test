@@ -2,29 +2,29 @@ format MS COFF
 
 include 'win32a.inc'
 
-public start
+public WinMainCRTStartup
 
-extrn '__imp__CreateFileA@28' as CreateFileA:dword
-extrn '__imp__CloseHandle@4' as CloseHandle:dword
-extrn '__imp__ReadFile@20' as ReadFile:dword
-extrn '__imp__WriteFile@20' as WriteFile:dword
-extrn '__imp__SetFilePointerEx@20' as SetFilePointerEx:dword
-extrn '__imp__FlushFileBuffers@4' as FlushFileBuffers:dword
-extrn '__imp__DeviceIoControl@32' as DeviceIoControl:dword
-extrn '__imp__GetLogicalDrives@0' as GetLogicalDrives:dword
-extrn '__imp__GetDriveTypeA@4' as GetDriveTypeA:dword
-extrn '__imp__VirtualAlloc@16' as VirtualAlloc:dword
-extrn '__imp__VirtualFree@12' as VirtualFree:dword
-extrn '__imp__GetLastError@0' as GetLastError:dword
-extrn '__imp__GetStdHandle@4' as GetStdHandle:dword
-extrn '__imp__ReadConsoleA@20' as ReadConsoleA:dword
-extrn '__imp__SetConsoleOutputCP@4' as SetConsoleOutputCP:dword
-extrn '__imp__SetConsoleCP@4' as SetConsoleCP:dword
-extrn '__imp__QueryPerformanceCounter@4' as QueryPerformanceCounter:dword
-extrn '__imp__QueryPerformanceFrequency@4' as QueryPerformanceFrequency:dword
-extrn '__imp__ExitProcess@4' as ExitProcess:dword
-extrn '__imp__IsUserAnAdmin@0' as IsUserAnAdmin:dword
-extrn '__imp__SystemFunction036@8' as SystemFunction036:dword
+extrn '_CreateFileA@28' as CreateFileA:dword
+extrn '_CloseHandle@4' as CloseHandle:dword
+extrn '_ReadFile@20' as ReadFile:dword
+extrn '_WriteFile@20' as WriteFile:dword
+extrn '_SetFilePointerEx@20' as SetFilePointerEx:dword
+extrn '_FlushFileBuffers@4' as FlushFileBuffers:dword
+extrn '_DeviceIoControl@32' as DeviceIoControl:dword
+extrn '_GetLogicalDrives@0' as GetLogicalDrives:dword
+extrn '_GetDriveTypeA@4' as GetDriveTypeA:dword
+extrn '_VirtualAlloc@16' as VirtualAlloc:dword
+extrn '_VirtualFree@12' as VirtualFree:dword
+extrn '_GetLastError@0' as GetLastError:dword
+extrn '_GetStdHandle@4' as GetStdHandle:dword
+extrn '_ReadConsoleA@20' as ReadConsoleA:dword
+extrn '_SetConsoleOutputCP@4' as SetConsoleOutputCP:dword
+extrn '_SetConsoleCP@4' as SetConsoleCP:dword
+extrn '_QueryPerformanceCounter@4' as QueryPerformanceCounter:dword
+extrn '_QueryPerformanceFrequency@4' as QueryPerformanceFrequency:dword
+extrn '_ExitProcess@4' as ExitProcess:dword
+extrn '_IsUserAnAdmin@0' as IsUserAnAdmin:dword
+extrn '_SystemFunction036@8' as SystemFunction036:dword
 
 ; ============================================================================
 ; КОНСТАНТЫ ТЕСТА И WINDOWS API
@@ -124,7 +124,7 @@ ends
 ; ============================================================================
 section '.text' code readable executable
 
-start:
+WinMainCRTStartup:
     xor     ebx, ebx                 ; код завершения по умолчанию — успех
     invoke  GetStdHandle, STD_OUTPUT_HANDLE
     mov     [g_StdOut], eax
